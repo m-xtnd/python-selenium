@@ -11,7 +11,7 @@ import unittest, time, re
 opts = ChromeOptions()
 opts.add_argument("--window-size=2560,1440")
 
-class TestFailedloginRetrieve(unittest.TestCase):
+class test_orangehm_1(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Chrome(options=opts)
         self.driver.implicitly_wait(30)
@@ -36,40 +36,6 @@ class TestFailedloginRetrieve(unittest.TestCase):
         driver.find_element(By.XPATH, "//button[@type='submit']").click()
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/sendPasswordReset")
     
-    def is_element_present(self, how, what):
-        try: self.driver.find_element(by=how, value=what)
-        except NoSuchElementException as e: return False
-        return True
-    
-    def is_alert_present(self):
-        try: self.driver.switch_to_alert()
-        except NoAlertPresentException as e: return False
-        return True
-    
-    def close_alert_and_get_its_text(self):
-        try:
-            alert = self.driver.switch_to_alert()
-            alert_text = alert.text
-            if self.accept_next_alert:
-                alert.accept()
-            else:
-                alert.dismiss()
-            return alert_text
-        finally: self.accept_next_alert = True
-    
-    def tearDown(self):
-        self.driver.quit()
-        self.assertEqual([], self.verificationErrors)
-        
-
-class TestLogin(unittest.TestCase):
-    def setUp(self):
-        self.driver = webdriver.Chrome(options=opts)
-        self.driver.implicitly_wait(30)
-        self.base_url = "https://www.google.com/"
-        self.verificationErrors = []
-        self.accept_next_alert = True
-    
     def test_login(self):
         driver = self.driver
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
@@ -80,39 +46,6 @@ class TestLogin(unittest.TestCase):
         driver.find_element(By.NAME, "password").send_keys("admin123")
         driver.find_element(By.XPATH, "//button[@type='submit']").click()
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index")
-    
-    def is_element_present(self, how, what):
-        try: self.driver.find_element(by=how, value=what)
-        except NoSuchElementException as e: return False
-        return True
-    
-    def is_alert_present(self):
-        try: self.driver.switch_to_alert()
-        except NoAlertPresentException as e: return False
-        return True
-    
-    def close_alert_and_get_its_text(self):
-        try:
-            alert = self.driver.switch_to_alert()
-            alert_text = alert.text
-            if self.accept_next_alert:
-                alert.accept()
-            else:
-                alert.dismiss()
-            return alert_text
-        finally: self.accept_next_alert = True
-    
-    def tearDown(self):
-        self.driver.quit()
-        self.assertEqual([], self.verificationErrors)
-
-class TestManageEmployee(unittest.TestCase):
-    def setUp(self):
-        self.driver = webdriver.Chrome(options=opts)
-        self.driver.implicitly_wait(30)
-        self.base_url = "https://www.google.com/"
-        self.verificationErrors = []
-        self.accept_next_alert = True
     
     def test_manage_employee(self):
         driver = self.driver
@@ -189,39 +122,6 @@ class TestManageEmployee(unittest.TestCase):
         driver.find_element(By.XPATH, "//div[@id='app']/div/div[2]/div[2]/div/div/form/div[2]/div/div[2]/div/div[2]/input").send_keys("x1000000")
         driver.find_element(By.XPATH, "//button[@type='submit']").click()
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/admin/viewSystemUsers")
-    
-    def is_element_present(self, how, what):
-        try: self.driver.find_element(by=how, value=what)
-        except NoSuchElementException as e: return False
-        return True
-    
-    def is_alert_present(self):
-        try: self.driver.switch_to_alert()
-        except NoAlertPresentException as e: return False
-        return True
-    
-    def close_alert_and_get_its_text(self):
-        try:
-            alert = self.driver.switch_to_alert()
-            alert_text = alert.text
-            if self.accept_next_alert:
-                alert.accept()
-            else:
-                alert.dismiss()
-            return alert_text
-        finally: self.accept_next_alert = True
-    
-    def tearDown(self):
-        self.driver.quit()
-        self.assertEqual([], self.verificationErrors)
-
-class TestAddnationality(unittest.TestCase):
-    def setUp(self):
-        self.driver = webdriver.Chrome(options=opts)
-        self.driver.implicitly_wait(30)
-        self.base_url = "https://www.google.com/"
-        self.verificationErrors = []
-        self.accept_next_alert = True
     
     def test_addnationality(self):
         driver = self.driver
