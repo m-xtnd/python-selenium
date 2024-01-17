@@ -33,6 +33,8 @@ class test_orangehm_1(unittest.TestCase):
         driver.find_element(By.NAME, "username").click()
         driver.find_element(By.NAME, "username").clear()
         driver.find_element(By.NAME, "username").send_keys("Admin")
+        time.sleep(5)
+        driver.get_screenshot_as_file("result_failedlogin_retrieve.png")
         driver.find_element(By.XPATH, "//button[@type='submit']").click()
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/sendPasswordReset")
     
@@ -44,6 +46,8 @@ class test_orangehm_1(unittest.TestCase):
         driver.find_element(By.NAME, "username").send_keys("Admin")
         driver.find_element(By.NAME, "password").clear()
         driver.find_element(By.NAME, "password").send_keys("admin123")
+        time.sleep(5)
+        driver.get_screenshot_as_file("result_test_login.png")
         driver.find_element(By.XPATH, "//button[@type='submit']").click()
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index")
     
@@ -120,6 +124,8 @@ class test_orangehm_1(unittest.TestCase):
         driver.find_element(By.XPATH, "//div[@id='app']/div/div[2]/div[2]/div/div/form/div[2]/div/div[2]/div/div[2]/input").click()
         driver.find_element(By.XPATH, "//div[@id='app']/div/div[2]/div[2]/div/div/form/div[2]/div/div[2]/div/div[2]/input").clear()
         driver.find_element(By.XPATH, "//div[@id='app']/div/div[2]/div[2]/div/div/form/div[2]/div/div[2]/div/div[2]/input").send_keys("x1000000")
+        time.sleep(5)
+        driver.get_screenshot_as_file("result_manage_employee.png")
         driver.find_element(By.XPATH, "//button[@type='submit']").click()
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/admin/viewSystemUsers")
     
@@ -144,6 +150,8 @@ class test_orangehm_1(unittest.TestCase):
         driver.find_element(By.XPATH, "//div[@id='app']/div/div[2]/div[2]/div/div/form/div/div/div[2]/input").click()
         driver.find_element(By.XPATH, "//div[@id='app']/div/div[2]/div[2]/div/div/form/div/div/div[2]/input").clear()
         driver.find_element(By.XPATH, "//div[@id='app']/div/div[2]/div[2]/div/div/form/div/div/div[2]/input").send_keys("Eorzean")
+        time.sleep(5)
+        driver.get_screenshot_as_file("result_addnationality.png")
         driver.find_element(By.XPATH, "//button[@type='submit']").click()
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/admin/nationality")
     

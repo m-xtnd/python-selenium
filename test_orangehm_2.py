@@ -20,7 +20,7 @@ class test_orangehm_2(unittest.TestCase):
         self.verificationErrors = []
         self.accept_next_alert = True
     
-    def test_candidate_creation(self):
+    def test_a_candidate_creation(self):
         driver = self.driver
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
         driver.find_element(By.NAME, "username").click()
@@ -57,9 +57,11 @@ class test_orangehm_2(unittest.TestCase):
         driver.find_element(By.XPATH, "//div[@id='app']/div/div[2]/div[2]/div/div/form/div[5]/div/div[2]/div/div[2]/div/div[2]/div/div/button").click()
         driver.find_element(By.XPATH, "//div[@id='app']/div/div[2]/div[2]/div/div/form/div[5]/div/div[2]/div/div[2]/div/div[2]/div/div[3]/div[7]/div").click()
         driver.find_element(By.XPATH, "//div[@id='app']/div/div[2]/div[2]/div/div/form/div[7]/div/div/div/div[2]/div/label/span/i").click()
+        time.sleep(5)
+        driver.get_screenshot_as_file("result_candidate_creation.png")
         driver.find_element(By.XPATH, "//button[@type='submit']").click()
     
-    def test_candidate_verification(self):
+    def test_b_candidate_verification(self):
         driver = self.driver
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
         driver.find_element(By.NAME, "username").clear()
@@ -70,10 +72,12 @@ class test_orangehm_2(unittest.TestCase):
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index")
         driver.find_element(By.XPATH, "//div[@id='app']/div/div/aside/nav/div[2]/ul/li[5]/a/span").click()
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/viewCandidates")
+        time.sleep(5)
+        driver.get_screenshot_as_file("result_candidate_verification.png")
         driver.find_element(By.XPATH, "//div[@id='app']/div/div[2]/div[2]/div/div[2]/div[3]/div/div[2]/div[25]/div/div[7]/div/button/i").click()
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/addCandidate/62")
     
-    def test_candidate_search(self):
+    def test_c_candidate_search(self):
         driver = self.driver
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
         driver.find_element(By.NAME, "username").clear()
@@ -87,6 +91,8 @@ class test_orangehm_2(unittest.TestCase):
         driver.find_element(By.XPATH, "//div[@id='app']/div/div[2]/div[2]/div/div/div[2]/form/div[2]/div/div/div/div[2]/div/div/input").click()
         driver.find_element(By.XPATH, "//div[@id='app']/div/div[2]/div[2]/div/div/div[2]/form/div[2]/div/div/div/div[2]/div/div/input").clear()
         driver.find_element(By.XPATH, "//div[@id='app']/div/div[2]/div[2]/div/div/div[2]/form/div[2]/div/div/div/div[2]/div/div/input").send_keys("Loney Middle Toons")
+        time.sleep(5)
+        driver.get_screenshot_as_file("result_candidate_search.png")
         driver.find_element(By.XPATH, "//button[@type='submit']").click()
         
         total_count = 0
@@ -121,7 +127,7 @@ class test_orangehm_2(unittest.TestCase):
         # self.assertEqual(total_count, 20)
 
     
-    def test_candidate_delete(self):
+    def test_d_candidate_delete(self):
         driver = self.driver
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
         driver.find_element(By.NAME, "username").click()
@@ -135,6 +141,8 @@ class test_orangehm_2(unittest.TestCase):
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/viewCandidates")
         driver.find_element(By.XPATH, "//div[@id='app']/div/div[2]/div[2]/div/div[2]/div[3]/div/div[2]/div[26]/div/div/div/div/label/span/i").click()
         driver.find_element(By.XPATH, "//div[@id='app']/div/div[2]/div[2]/div/div[2]/div[3]/div/div[2]/div[26]/div/div[7]/div/button[2]/i").click()
+        time.sleep(5)
+        driver.get_screenshot_as_file("result_candidate_delete.png")
         driver.find_element(By.XPATH, "//div[@id='app']/div[3]/div/div/div/div[3]/button[2]").click()
     
     def is_element_present(self, how, what):
